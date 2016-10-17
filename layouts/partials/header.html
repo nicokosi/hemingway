@@ -2,6 +2,14 @@
 <html{{ with .Site.LanguageCode }} lang="{{ . }}"{{ end }}>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{{ if .IsTranslated }}
+<meta name="locale" content="{{ .Lang }}">
+{{ end }}
+<meta name="og:title" content="{{ .Title }}">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ .Description }}">
+<meta name="description" content="{{ .Description }}">
+<meta name="twitter:description" content="{{ .Description }}">
 <title>{{ .Title }}{{ if eq .IsHome false }} | {{ .Site.Title }}{{ end }}</title>
 <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/style.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
