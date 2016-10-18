@@ -2,20 +2,7 @@
   <div class="container">
     <nav class="nav">
       <div class="nav-left">
-        <img src="{{ .Site.Params.logo.url }}" width="90" height="90" alt="{{ .Site.Title }}" title="{{ .Site.Title }}"/>
         <a class="nav-item" href="{{ .Site.BaseURL }}"><h1 class="title is-4">{{ .Site.Title }}</h1></a>
-      </div>
-      <div>
-        {{ if .IsTranslated }}
-            {{ range .Translations }}
-              {{ if eq .Lang "fr" }}
-<a href="{{ .Permalink }}">🇫🇷 version française</a>
-              {{ end }}
-              {{ if eq .Lang "en" }}
-              <a href="{{ .Permalink }}">🇬🇧 english version</a>
-              {{ end }}
-            {{ end}}
-        {{ end }}
       </div>
       <div class="nav-right">
         <nav class="nav-item level is-mobile">
@@ -29,5 +16,20 @@
         </nav>
       </div>
     </nav>
+    <div>
+      <img src="{{ .Site.Params.logo.url }}" width="90" height="90" alt="{{ .Site.Title }}" title="{{ .Site.Title }}"/>
+    </div>
+    <div>
+      {{ if .IsTranslated }}
+          {{ range .Translations }}
+            {{ if eq .Lang "fr" }}
+<a href="{{ .Permalink }}">🇫🇷 version française</a>
+            {{ end }}
+            {{ if eq .Lang "en" }}
+            <a href="{{ .Permalink }}">🇬🇧 english version</a>
+            {{ end }}
+          {{ end}}
+      {{ end }}
+    </div>
   </div>
 </section>
